@@ -1,6 +1,6 @@
 # video storing and validation
 
-## Video Charging:
+# Video Charging:
 
 Endpoint: http://localhost:8000/api/charge/
 
@@ -23,7 +23,7 @@ Success response with status code 200:
  {'Video size': 573, 'Length': '0:06:18', 'Upload cost': '25$'}
 ```
 
-If request data is invalid: You will get following error messages with status code 400.
+If request data is invalid: You will get the following error messages with status code 400.
 
 ```bash
  # Invalid post request
@@ -60,7 +60,7 @@ Success response with status code 201:
  {'id': 6, 'title': 'Never gonna give you up!', 'description': 'Never gonna let you down', 'size': 30, 'duration': 230, 'video_type': 'mp4'}
 ```
 
-If post request data dosen't match the parameters: You will get following error messages with status code 400.
+If post request data dosen't match the parameters: You will get the following error message with status code 400.
 
 ```bash
  {'size': ['This field is required.'], 'duration': ['This field is required.'], 'video_type': ['This field is required.']}
