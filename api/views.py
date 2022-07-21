@@ -36,3 +36,14 @@ def checkParams(request):
 class VideoDetailsApiView(generics.RetrieveAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+
+
+video_details_view = VideoDetailsApiView.as_view()
+
+
+class VideoCreateView(generics.CreateAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
+
+
+video_create_view = VideoCreateView.as_view()
