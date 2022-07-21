@@ -32,9 +32,9 @@ def byteconversion(bytes: int, to: str, default=1024) -> int:
     return int(result)
 
 
-print(f'video in seconds: {seconds}')
-print(f'video in minutes: {video_time}')
-print(f"video size: {byteconversion(filesize, 'bit')}")
+# print(f'video in seconds: {seconds}')
+# print(f'video in minutes: {video_time}')
+# print(f"video size: {byteconversion(filesize, 'bit')}")
 
 
 def rate(video_size: int, duration: int) -> int:
@@ -57,7 +57,7 @@ def rate(video_size: int, duration: int) -> int:
 # mid rate1 = 25 (5+20) less size | more duration
 # mid rate2= 25 (12.5+12.5) more size | less duration
 
-print(rate(200, 300))
-print(rate(600, 400))
-print(rate(300, 600))
-print(rate(700, 200))
+# print(rate(200, 300))
+# print(rate(600, 400))
+# print(rate(300, 600))
+# print(rate(700, 200))

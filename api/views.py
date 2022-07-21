@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from datetime import timedelta
 from .models import Video
-from .serializers import VideoSerializer
+from .serializers import VideoSerializer, VideoChargeSerializer
 from .videoutils import *
 
 
@@ -20,10 +20,12 @@ def homePage(request):
 
 @api_view(['POST'])
 def checkParams(request):
-    client_data = json.loads(request.body.decode('utf-8'))
-    video_size = client_data['video_size']
-    seconds = client_data['length']
-    length = timedelta(seconds=seconds)
-    videosize = round(byteconversion(video_size, 'mb'))
-    cost = rate(videosize, seconds)
-    return Response({"Video size": videosize, "Length": f"{length}", "Upload cost": f"{cost}$"})
+    serializer = VideoChargeSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        videosize = serializer.data['size']
+        seconds = serializer.data['duration']
+        length = timedelta(seconds=seconds)
+        cost = rate(videosize, seconds)
+        return Response({"Video size": videosize, "Length": f"{length}", "Upload cost": f"{cost}$"})
+        # return Response(serializer.data)
+    return Response({"error": "invalid params"})
