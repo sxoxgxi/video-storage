@@ -37,7 +37,7 @@ def byteconversion(bytes: int, to: str, default=1024) -> int:
 # print(f"video size: {byteconversion(filesize, 'bit')}")
 
 
-def rate(video_size: int, duration: int) -> int:
+def rate(video_size: int, duration: int) -> int | float:
     """Charges the user according to the video size and duration specified
 
     Args:
@@ -49,7 +49,7 @@ def rate(video_size: int, duration: int) -> int:
     """
     video_charge = 5 if video_size <= 500 else 12.5
     video_charge += 12.5 if duration <= 378 else 20
-    return int(video_charge)
+    return video_charge
 
 
 # min rate = 17.5 (5+12.5) less size | less duration

@@ -17,7 +17,7 @@ Send request to the endpoint with requests:
 
 ```
 
-outputs:
+Outputs:
 
 ```bash
  {'Video size': 573, 'Length': '0:06:18', 'Upload cost': '25$'}
@@ -31,4 +31,7 @@ If request data is invalid, you will get following error messages with status co
 
  # Invalid data for fields
  {'size': ['A valid integer is required.']}
+
+ # Invalid video type
+ {'video_type': ['This field must be mp4 or mkv.']}
 ```

@@ -21,11 +21,11 @@ def homePage(request):
 @api_view(['POST'])
 def checkParams(request):
     serializer = VideoChargeSerializer(data=request.data)
-    if serializer.is_valid(raise_exception=True):
+    if serializer.is_valid(raise_exception=True) and serializer.data['video_type'] in ['mp4', 'mkv']:
         videosize = serializer.data['size']
         seconds = serializer.data['duration']
         length = timedelta(seconds=seconds)
         cost = rate(videosize, seconds)
         return Response({"Video size": videosize, "Length": f"{length}", "Upload cost": f"{cost}$"})
         # return Response(serializer.data)
-    return Response({"error": "invalid params"})
+    return Response({"video_type": ['This field must be mp4 or mkv.']}, status=400)
