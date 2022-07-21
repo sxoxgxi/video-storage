@@ -9,7 +9,7 @@ Send request to the endpoint with requests:
 ```python
  import requests
 
- res = requests.post('http://localhost:8000/api/post',
+ res = requests.post('http://localhost:8000/api/charge',
                     json={'size': 573, 'duration': 378, 'video_type': 'mp4'})
 
  print(res.json())
