@@ -23,8 +23,12 @@ outputs:
  {'Video size': 573, 'Length': '0:06:18', 'Upload cost': '25$'}
 ```
 
-If request data is invalid, you will get an error message with status code 400.
+If request data is invalid, you will get following error messages with status code 400.
 
 ```bash
+ # Invalid post request
  {'size': ['This field is required.'], 'duration': ['This field is required.'], 'video_type': ['This field is required.']}
+
+ # Invalid data for fields
+ {'size': ['A valid integer is required.']}
 ```
