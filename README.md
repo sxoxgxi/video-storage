@@ -1,5 +1,3 @@
-# video storing and validation
-
 # Video Charging:
 
 Endpoint: http://localhost:8000/api/charge/
@@ -65,3 +63,21 @@ If post request data dosen't match the parameters: You will get the following er
 ```bash
  {'size': ['This field is required.'], 'duration': ['This field is required.'], 'video_type': ['This field is required.']}
 ```
+
+# Videos
+
+For list view of all the videos endpoint is http://localhost:8000/api/videos/
+Example:
+![Alt text](https://ibb.co/chtJgBB "List View")
+
+# Uploading videos
+
+Endpoint: http://localhost:8000/api/create
+
+### Validation errors:
+
+Video length is above the maximum allowed:
+![Alt text](https://ibb.co/chtJgBB "Length error")
+
+Video Size is above the maximum allowed:
+![Alt text](https://ibb.co/v4JGZVC "Size error")
