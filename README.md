@@ -75,10 +75,12 @@ Example:
 
 Endpoint: http://localhost:8000/api/create
 
-### Validation errors:
+### Validation Errors:
 
 Video length is above the maximum allowed:
 ![Alt text](https://i.ibb.co/gZwyj22/uploadvalidation1.png "Length error")
 
 Video Size is above the maximum allowed:
 ![Alt text](https://i.ibb.co/whKXMBZ/validation2.png "Size error")
+
+>  Extension Allowed: mp4, mkv.
