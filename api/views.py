@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 # import json
+from django.shortcuts import render
 from rest_framework.decorators import api_view
-# from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 from rest_framework import generics
 from datetime import timedelta
@@ -10,8 +10,12 @@ from .serializers import VideoSerializer, VideoChargeSerializer, VideosSerialize
 from .videoutils import *
 
 
+def homepage(request):
+    return render(request, 'api/home.html')
+
+
 @api_view(['GET'])
-def homePage(request):
+def videosPage(request):
     if instance := Video.objects.all():
         data = VideosSerializer(instance, many=True).data
     else:
@@ -25,7 +29,7 @@ def checkParams(request):
     # print(request.data)
     if serializer.is_valid(raise_exception=True) and serializer.data['video_type'] in ['mp4', 'mkv']:
         videosize = serializer.data['size']
-        seconds = serializer.data['duration']
+        seconds = serializer.data['duration_in_seconds']
         length = timedelta(seconds=seconds)
         cost = rate(videosize, seconds)
         return Response({"Video size": videosize, "Length": f"{length}", "Upload cost": f"{cost}$"})

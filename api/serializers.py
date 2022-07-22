@@ -1,6 +1,6 @@
 from pyexpat import model
 from rest_framework import serializers
-from .models import Video
+from .models import Video, VideoCharge
 
 
 class VideosSerializer(serializers.ModelSerializer):
@@ -17,5 +17,5 @@ class VideoSerializer(serializers.ModelSerializer):
 
 class VideoChargeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Video
-        fields = ['size', 'duration', 'video_type']
+        model = VideoCharge
+        fields = ['size', 'duration_in_seconds', 'video_type']

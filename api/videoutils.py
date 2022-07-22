@@ -1,7 +1,7 @@
 import os
-from webbrowser import get
 import cv2
 import datetime
+import tempfile
 
 video_path = "D:/Projects/python projects/rpalabs/video storage/video_files/miyukixfuziwararap.mp4"
 # video = cv2.VideoCapture(video_path)
@@ -11,38 +11,6 @@ video_path = "D:/Projects/python projects/rpalabs/video storage/video_files/miyu
 # seconds = round(frames / fps)
 # video_time = datetime.timedelta(seconds=seconds)
 # filesize = os.path.getsize(video_path)
-
-
-def get_length_seconds(file: str) -> int:
-    """get the video length in secondss
-
-    Args:
-        file (str): file path
-
-    Returns:
-        int: video length in seconds
-    """
-    video = cv2.VideoCapture(file)
-    frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
-    fps = video.get(cv2.CAP_PROP_FPS)
-    return round(frames / fps)
-
-
-print(get_length_seconds(video_path))
-
-
-def filesize(file: str, to: str) -> int:
-    """Gets the video size in mb
-
-    Args:
-        file (str): file path.
-        to (str): storage format.
-
-    Returns:
-        int : conversion of the bytes to provided storage format.
-    """
-    file_bytes = os.path.getsize(file)
-    return byteconversion(file_bytes, to)
 
 
 def byteconversion(bytes: int, to: str, default=1024) -> int:
@@ -65,6 +33,44 @@ def byteconversion(bytes: int, to: str, default=1024) -> int:
     return int(result)
 
 
+def get_length_seconds(file: str) -> int:
+    """get the video length in secondss
+
+    Args:
+        file (str): file path
+
+    Returns:
+        int: video length in seconds
+    """
+    print(file.temporary_file_path())
+    video = cv2.VideoCapture(file.temporary_file_path())
+    frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
+    fps = video.get(cv2.CAP_PROP_FPS)
+    print(fps, frames)
+    # print(file)
+    return round(frames / fps)
+
+
+# print(get_length_seconds(video_path))
+
+
+def filesize(file: str, to: str) -> int:
+    """Gets the video size in mb
+
+    Args:
+        file (str): file path.
+        to (str): storage format.
+
+    Returns:
+        int : conversion of the bytes to provided storage format.
+    """
+    file_bytes = os.path.getsize(file.temporary_file_path())
+    print(file_bytes)
+    print(byteconversion(file_bytes, to))
+    return byteconversion(file_bytes, to)
+
+
+# print(filesize(video_path, 'mb'))
 # print(f'video in seconds: {seconds}')
 # print(f'video in minutes: {video_time}')
 # print(f"video size: {byteconversion(filesize, 'bit')}")

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Storage | API</title>
+    <style>
+        body {
+        color: #333;
+        font: 16px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .list-numbered {
+        list-style: none;
+        margin-left: 1em;
+        counter-reset: line;
+        }
+
+        .list-numbered > li {
+        position: relative;
+        margin-bottom: 1.5em;
+        }
+
+        .list-numbered > li:before {
+            position: absolute;
+            left: -2.25em;
+            display: inline-block;
+        width: 22px;
+            height: 22px;
+            margin-right: 0.5em;
+        background-color: #B53C2C;
+            border-radius: 50%;
+            color: #fff;
+            text-align:center;
+        line-height: 1.25em;
+            counter-increment: line;
+            content: counter(line);
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <ol class="list-numbered">
+        <li><a href="{% url 'videos' %}">Click here for List view for all the videos.</a></li>
+        <li><a href="{% url 'create' %}">Endpoint for uploading videos.</a></li>
+        <li><a href="{% url 'charge' %}">Endpoint for making upload charge request by providing parameters.</a></li>
+        <li>For details for particular video use endpoint <em>api/videos/<strong>ID</strong></em></li>
+        <li>ID: Video id from list view.</li>
+    </ol>
+</body>
+</html>
