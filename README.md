@@ -77,7 +77,7 @@ Endpoint: http://localhost:8000/api/create
 ### Validation errors:
 
 Video length is above the maximum allowed:
-![Alt text](https://ibb.co/chtJgBB "Length error")
+![Alt text](https://i.ibb.co/gZwyj22/uploadvalidation1.png "Length error")
 
 Video Size is above the maximum allowed:
-![Alt text](https://ibb.co/v4JGZVC "Size error")
+![Alt text](https://i.ibb.co/whKXMBZ/validation2.png "Size error")
