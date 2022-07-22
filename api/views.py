@@ -22,7 +22,7 @@ def homePage(request):
 @api_view(['POST'])
 def checkParams(request):
     serializer = VideoChargeSerializer(data=request.data)
-    print(request.data)
+    # print(request.data)
     if serializer.is_valid(raise_exception=True) and serializer.data['video_type'] in ['mp4', 'mkv']:
         videosize = serializer.data['size']
         seconds = serializer.data['duration']
@@ -41,9 +41,9 @@ class VideoDetailsApiView(generics.RetrieveAPIView):
 video_details_view = VideoDetailsApiView.as_view()
 
 
-class VideoCreateView(generics.CreateAPIView):
+class VideoUploadView(generics.CreateAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
 
 
-video_create_view = VideoCreateView.as_view()
+video_upload_view = VideoUploadView.as_view()
