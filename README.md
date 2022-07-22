@@ -34,7 +34,7 @@ If request data is invalid: You will get the following error messages with statu
  {'video_type': ['This field must be mp4 or mkv.']}
 ```
 
-# Creating Videos
+# Uploading Videos
 
 Endpoint: http://localhost:8000/api/create/
 
@@ -44,7 +44,7 @@ Send post request to endpoint with requets:
  import requests
 
  data = {'title': 'Never gonna give you up!', 'description': 'Never gonna let you down',
-         'size': 30, 'duration': 230, 'video_type': 'mp4'}
+         'video_file': 'file.mp4', 'thumbnail': 'thumbnail.jpg'}
 
  res = requests.post('http://localhost:8000/api/create/', json=data)
  print(res.json())
@@ -55,13 +55,13 @@ Send post request to endpoint with requets:
 Success response with status code 201:
 
 ```bash
- {'id': 6, 'title': 'Never gonna give you up!', 'description': 'Never gonna let you down', 'size': 30, 'duration': 230, 'video_type': 'mp4'}
+ {'id': 61a1a375-2c6e-49c1-b1b1-gerr4, 'title': 'Never gonna give you up!', 'description': 'Never gonna let you down', 'video_file': 'media/file.mp4', 'thumbnail': 'media/thumbnails/thumbnail.jpg'}
 ```
 
 If post request data dosen't match the parameters: You will get the following error message with status code 400.
 
 ```bash
- {'size': ['This field is required.'], 'duration': ['This field is required.'], 'video_type': ['This field is required.']}
+ {'title': ['This field is required.'], 'video_file': ['No file was submitted.'], 'thumbnail': ['No file was submitted.']}
 ```
 
 # Videos
