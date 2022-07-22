@@ -50,6 +50,7 @@ Send post request to endpoint with requets:
  print(res.json())
 ```
 
+
 > Note: Don't miss the trailing slash in the endpoint.
 
 Success response with status code 201:
