@@ -1,16 +1,6 @@
 import os
 import cv2
 import datetime
-import tempfile
-
-video_path = "D:/Projects/python projects/rpalabs/video storage/video_files/miyukixfuziwararap.mp4"
-# video = cv2.VideoCapture(video_path)
-
-# frames = video.get(cv2.CAP_PROP_FRAME_COUNT)
-# fps = video.get(cv2.CAP_PROP_FPS)
-# seconds = round(frames / fps)
-# video_time = datetime.timedelta(seconds=seconds)
-# filesize = os.path.getsize(video_path)
 
 
 def byteconversion(bytes: int, to: str, default=1024) -> int:
@@ -51,9 +41,6 @@ def get_length_seconds(file: str) -> int:
     return round(frames / fps)
 
 
-# print(get_length_seconds(video_path))
-
-
 def filesize(file: str, to: str) -> int:
     """Gets the video size in mb
 
@@ -68,12 +55,6 @@ def filesize(file: str, to: str) -> int:
     print(file_bytes)
     print(byteconversion(file_bytes, to))
     return byteconversion(file_bytes, to)
-
-
-# print(filesize(video_path, 'mb'))
-# print(f'video in seconds: {seconds}')
-# print(f'video in minutes: {video_time}')
-# print(f"video size: {byteconversion(filesize, 'bit')}")
 
 
 def rate(video_size: int, duration: int) -> int | float:
@@ -95,8 +76,3 @@ def rate(video_size: int, duration: int) -> int | float:
 # max rate = 32.5 (12.5+20) more size | more duration
 # mid rate1 = 25 (5+20) less size | more duration
 # mid rate2= 25 (12.5+12.5) more size | less duration
-
-# print(rate(200, 300))
-# print(rate(600, 400))
-# print(rate(300, 600))
-# print(rate(700, 200))

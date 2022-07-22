@@ -1,5 +1,3 @@
-# from django.shortcuts import render
-# import json
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -26,14 +24,12 @@ def videosPage(request):
 @api_view(['POST'])
 def checkParams(request):
     serializer = VideoChargeSerializer(data=request.data)
-    # print(request.data)
     if serializer.is_valid(raise_exception=True) and serializer.data['video_type'] in ['mp4', 'mkv']:
         videosize = serializer.data['size']
         seconds = serializer.data['duration_in_seconds']
         length = timedelta(seconds=seconds)
         cost = rate(videosize, seconds)
         return Response({"Video size": videosize, "Length": f"{length}", "Upload cost": f"{cost}$"})
-        # return Response(serializer.data)
     return Response({"video_type": ['This field must be mp4 or mkv.']}, status=400)
 
 
