@@ -69,7 +69,7 @@ If post request data dosen't match the parameters: You will get the following er
 
 For list view of all the videos endpoint is http://localhost:8000/api/videos/
 Example:
-![Alt text](https://ibb.co/chtJgBB "List View")
+![Alt text](https://i.ibb.co/gZwyj22/uploadvalidation1.png "List View")
 
 # Uploading videos
 
